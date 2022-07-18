@@ -177,10 +177,6 @@ jobs:
         insecure_skip_tls_verify: true
         namespace: ${{ env.OPENSHIFT_NAMESPACE }}
         
-    - name: Delete Lasr Project OpenShift
-      run: |
-        oc delete all --selector=app=${{ env.APP_NAME }}
-
     # This step should create a deployment, service, and route to run your app and expose it to the internet.
     # https://github.com/redhat-actions/oc-new-app#readme
     - name: Create and expose app
@@ -192,8 +188,6 @@ jobs:
         namespace: ${{ env.OPENSHIFT_NAMESPACE }}
         port: ${{ env.APP_PORT }}
     
-    
-
     - name: Print application URL
       env:
         ROUTE: ${{ steps.deploy-and-expose.outputs.route }}
