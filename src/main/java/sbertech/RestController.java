@@ -31,7 +31,7 @@ public class RestController {
     produces = MediaType.APPLICATION_JSON_VALUE)
     public RestResponse restMethod(String name) {
         RestResponse restResponse = new RestResponse();
-        restResponse.setParam1("Hello");
+        restResponse.setParam1("Oleg privet");
         restResponse.setParam2(name);
         return restResponse;
     }
